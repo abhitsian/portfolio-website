@@ -4,31 +4,33 @@
       "id": 1,
       "name": "Artifact",
       "type": "Desktop App",
-      "description": "PM Content Sharing Platform - A modern desktop application for product managers to create, share, and collaborate on artifacts including specs, screenshots, Figma links, prototypes, and ideas.",
+      "description": "A modern Electron desktop application designed for product managers to create, share, and collaborate on artifacts. Build visual canvases with specs, screenshots, Figma links, prototypes, and ideas. Features a social feed for team collaboration and a carousel mode for presentations.",
       "tech": ["React 19", "TypeScript", "Electron", "Tailwind CSS", "Vite", "Zustand"],
       "features": [
-        "Canvas workspace with drag & drop",
-        "Image, video, GIF, and URL embedding",
-        "Figma integration",
-        "Carousel presentation view",
-        "Social feed with search"
+        "Canvas workspace with drag & drop functionality",
+        "Multi-media support (images, videos, GIFs, URLs)",
+        "Figma integration for design collaboration",
+        "Carousel presentation view for stakeholder reviews",
+        "Social feed with search, reactions, and bookmarks",
+        "LocalStorage and IndexedDB persistence"
       ],
       "path": "/Users/abhisheksivaraman/artifact-app",
-      "github": null,
+      "github": "https://github.com/abhitsian/artifact-app",
       "status": "Active"
     },
     {
       "id": 2,
       "name": "PM Spec Analyzer",
       "type": "Web App",
-      "description": "Socratic review tool for PM specs. Analyzes specs, asks clarifying questions one at a time to improve thinking, then provides actionable feedback.",
+      "description": "A Streamlit-based Socratic review tool that helps product managers write better specifications. Uses Claude Code CLI to analyze specs across 8 dimensions, asking targeted clarifying questions to improve thinking and decision-making.",
       "tech": ["Python", "Streamlit", "Claude Code CLI", "python-docx"],
       "features": [
-        "Upload specs (.txt, .md, .docx)",
-        "Analysis across 8 dimensions",
-        "Stage-aware questioning",
+        "Upload specs in .txt, .md, or .docx formats",
+        "8-dimensional analysis (Problem Definition, User Understanding, Success Metrics, etc.)",
+        "Stage-aware questioning (Early Draft, Developing, Final Review)",
+        "Socratic methodology for iterative improvement",
         "Session auto-save with full Q&A transcript",
-        "No API keys needed - runs locally"
+        "No API keys required - runs entirely locally"
       ],
       "path": "/Users/abhisheksivaraman/spec_analyzer",
       "github": "https://github.com/abhitsian/pm-spec-analyzer",
@@ -38,32 +40,34 @@
       "id": 3,
       "name": "PM Spec Analyzer Mac App",
       "type": "Native Mac App",
-      "description": "Native tkinter-based Mac application for spec analysis with local processing through Claude Code CLI.",
+      "description": "Native macOS application version of the PM Spec Analyzer. Built with tkinter for a native Mac experience, featuring the same comprehensive spec evaluation and Socratic coaching methodology, with exportable results and no external API dependencies.",
       "tech": ["Python", "tkinter", "Claude Code CLI", "py2app"],
       "features": [
-        "Mac native GUI",
-        "Text paste or file upload",
-        "Comprehensive spec evaluation",
-        "Iterative improvement through coaching",
-        "Export results capability"
+        "Native macOS GUI with tkinter",
+        "Text paste or file upload support",
+        "Comprehensive 8-dimensional spec evaluation",
+        "Iterative improvement through Socratic coaching",
+        "Export results to text or PDF",
+        "Distributable .dmg installer for team rollout"
       ],
       "path": "/Users/abhisheksivaraman/spec_analyzer_mac",
-      "github": null,
+      "github": "https://github.com/abhitsian/spec-analyzer-mac",
       "status": "Active"
     },
     {
       "id": 4,
       "name": "ServiceNow MCP Server",
       "type": "MCP Server",
-      "description": "A Model Context Protocol (MCP) server implementation for ServiceNow, enabling Claude to interact with ServiceNow instances. Production-ready with extensive feature set.",
+      "description": "Production-ready Model Context Protocol (MCP) server that enables Claude to interact with ServiceNow instances. Supports incident management, service catalog operations, change requests, knowledge base management, and workflow automation with multiple authentication methods.",
       "tech": ["Python", "Pydantic", "Starlette", "Uvicorn", "httpx"],
       "features": [
-        "Multiple auth methods (Basic, OAuth, API Key)",
-        "Incident Management tools",
-        "Service Catalog management",
-        "Change Request management",
-        "Knowledge Base management",
-        "Workflow and Script Include management"
+        "Multiple authentication methods (Basic, OAuth, API Key)",
+        "Incident Management tools with full CRUD operations",
+        "Service Catalog management and optimization",
+        "Change Request management and approval workflows",
+        "Knowledge Base content management",
+        "Workflow and Script Include management",
+        "Changeset tracking and deployment"
       ],
       "path": "/Users/abhisheksivaraman/servicenow-mcp",
       "github": "https://github.com/osomai/servicenow-mcp",
@@ -74,82 +78,111 @@
       "id": 5,
       "name": "Claude MCP Tools",
       "type": "MCP Utilities",
-      "description": "Collection of MCP tool implementations including Memory Vault and Smart Rate Limiter servers.",
+      "description": "A collection of reusable Model Context Protocol tools including Memory Vault for semantic conversation storage and Smart Rate Limiter for token-aware request throttling. Features both simple and production-ready implementations with FAISS vector search and SQLite persistence.",
       "tech": ["Python", "MCP Framework", "FAISS", "sentence-transformers", "SQLite"],
       "features": [
-        "Memory Vault: Store and search conversations with semantic embeddings",
-        "Rate Limiter: Smart rate limiting with token-aware throttling",
-        "Simple and full-featured implementations"
+        "Memory Vault: Store conversations with semantic embeddings",
+        "FAISS-powered vector similarity search",
+        "Smart Rate Limiter with token-aware throttling",
+        "SQLite persistence for conversation history",
+        "Both simple and full-featured server implementations",
+        "Easy integration with Claude Desktop"
       ],
       "path": "/Users/abhisheksivaraman/claude-mcp-tools",
-      "github": null,
+      "github": "https://github.com/abhitsian/claude-mcp-tools",
       "status": "Active"
     },
     {
       "id": 6,
       "name": "Task Master Proxy",
       "type": "Node.js MCP Proxy",
-      "description": "Express-based MCP proxy server that forwards queries to a Replit-deployed task manager API.",
+      "description": "Express-based MCP proxy server that bridges Claude Desktop with a Replit-deployed task manager API. Implements bidirectional WebSocket communication for real-time task management through Claude's conversational interface.",
       "tech": ["Node.js", "Express", "WebSocket", "node-fetch"],
       "features": [
-        "MCP protocol implementation",
-        "Forward queries to external task manager",
-        "WebSocket-based communication with Claude Desktop",
-        "Designed for Replit deployment"
+        "Full MCP protocol implementation",
+        "WebSocket-based bidirectional communication",
+        "Request forwarding to external task manager API",
+        "Support for both stdio and WebSocket protocols",
+        "Optimized for Replit deployment",
+        "Real-time task synchronization"
       ],
       "path": "/Users/abhisheksivaraman/task-master-proxy",
-      "github": null,
+      "github": "https://github.com/abhitsian/task-master-proxy",
       "status": "Active"
     },
     {
       "id": 7,
       "name": "Momentum",
       "type": "Chrome Extension",
-      "description": "A minimal new tab page extension featuring time display, daily quotes from Naval Ravikant, and beautiful background images.",
+      "description": "A minimalist Chrome new tab extension that replaces the default new tab page with a distraction-free experience featuring a real-time clock, curated Naval Ravikant quotes for daily inspiration, and beautiful background images from Bing's collection.",
       "tech": ["JavaScript", "Chrome Extension Manifest v3", "Bing Image API", "CSS"],
       "features": [
-        "Current time display (updated every second)",
-        "Naval Ravikant quote rotation",
-        "Beautiful background images from Bing",
-        "Minimal, distraction-free design",
-        "Zero permissions required"
+        "Real-time clock display (updates every second)",
+        "Curated Naval Ravikant quote rotation for daily inspiration",
+        "Beautiful background images from Bing's daily collection",
+        "Minimalist, distraction-free design aesthetic",
+        "Zero permissions required for maximum privacy",
+        "Lightweight and fast performance"
       ],
       "path": "/Users/abhisheksivaraman/Momentum",
-      "github": null,
+      "github": "https://github.com/abhitsian/momentum-extension",
       "status": "Active"
     },
     {
       "id": 8,
       "name": "Journal Bot",
       "type": "Telegram Bot",
-      "description": "Personal journal bot for Telegram that allows users to add and view journal entries through a bot interface.",
+      "description": "A personal journaling bot for Telegram that enables users to capture and review journal entries directly from their chat interface. Features persistent JSON storage and simple command-based interaction for quick daily journaling.",
       "tech": ["Python", "python-telegram-bot", "JSON Storage"],
       "features": [
-        "/start - Welcome message",
-        "/add - Add new journal entries",
-        "/view - Review recent entries",
-        "/help - Help command",
-        "Persistent storage in JSON"
+        "/start - Welcome message and bot introduction",
+        "/add - Add new timestamped journal entries",
+        "/view - Review recent journal entries",
+        "/help - Display command reference",
+        "Persistent JSON storage for all entries",
+        "Simple, conversational interface"
       ],
       "path": "/Users/abhisheksivaraman/Journal App",
-      "github": null,
+      "github": "https://github.com/abhitsian/journal-bot",
       "status": "In Development"
     },
     {
       "id": 9,
       "name": "OpenWebUI",
       "type": "Python Project",
-      "description": "Python 3.11+ project with minimal setup - appears to be a stub or placeholder project.",
+      "description": "Foundational Python 3.11+ project structure for building modern web-based user interfaces. Includes basic project setup with modern Python tooling and configuration.",
       "tech": ["Python 3.11+"],
-      "features": [],
+      "features": [
+        "Python 3.11+ compatibility",
+        "Modern project structure with pyproject.toml",
+        "Ready for web UI development"
+      ],
       "path": "/Users/abhisheksivaraman/openwebui",
-      "github": null,
+      "github": "https://github.com/abhitsian/openwebui",
       "status": "Placeholder"
+    },
+    {
+      "id": 10,
+      "name": "Portfolio Website",
+      "type": "Web App",
+      "description": "Elegant portfolio website showcasing side projects and hustles built with Claude Code. Features a Stripe Press-inspired minimalist design with beautiful typography, clean layouts, and dynamic project loading from JSON.",
+      "tech": ["HTML", "CSS", "JavaScript", "JSON"],
+      "features": [
+        "Stripe Press-inspired minimalist design",
+        "Dynamic project loading from JSON data",
+        "Filterable project categories (Desktop, Web, MCP, Extensions, Bots)",
+        "Responsive two-column layout",
+        "Beautiful typography with generous spacing",
+        "GitHub integration for all projects"
+      ],
+      "path": "/Users/abhisheksivaraman/personal-website",
+      "github": "https://github.com/abhitsian/portfolio-website",
+      "status": "Active"
     }
   ],
   "metadata": {
     "lastUpdated": "2026-02-11",
-    "totalProjects": 9,
+    "totalProjects": 10,
     "author": "Abhishek Sivaraman",
     "tagline": "Building with Claude Code"
   }
