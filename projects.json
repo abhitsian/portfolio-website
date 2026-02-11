@@ -1,0 +1,156 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "Artifact",
+      "type": "Desktop App",
+      "description": "PM Content Sharing Platform - A modern desktop application for product managers to create, share, and collaborate on artifacts including specs, screenshots, Figma links, prototypes, and ideas.",
+      "tech": ["React 19", "TypeScript", "Electron", "Tailwind CSS", "Vite", "Zustand"],
+      "features": [
+        "Canvas workspace with drag & drop",
+        "Image, video, GIF, and URL embedding",
+        "Figma integration",
+        "Carousel presentation view",
+        "Social feed with search"
+      ],
+      "path": "/Users/abhisheksivaraman/artifact-app",
+      "github": null,
+      "status": "Active"
+    },
+    {
+      "id": 2,
+      "name": "PM Spec Analyzer",
+      "type": "Web App",
+      "description": "Socratic review tool for PM specs. Analyzes specs, asks clarifying questions one at a time to improve thinking, then provides actionable feedback.",
+      "tech": ["Python", "Streamlit", "Claude Code CLI", "python-docx"],
+      "features": [
+        "Upload specs (.txt, .md, .docx)",
+        "Analysis across 8 dimensions",
+        "Stage-aware questioning",
+        "Session auto-save with full Q&A transcript",
+        "No API keys needed - runs locally"
+      ],
+      "path": "/Users/abhisheksivaraman/spec_analyzer",
+      "github": "https://github.com/abhitsian/pm-spec-analyzer",
+      "status": "Active"
+    },
+    {
+      "id": 3,
+      "name": "PM Spec Analyzer Mac App",
+      "type": "Native Mac App",
+      "description": "Native tkinter-based Mac application for spec analysis with local processing through Claude Code CLI.",
+      "tech": ["Python", "tkinter", "Claude Code CLI", "py2app"],
+      "features": [
+        "Mac native GUI",
+        "Text paste or file upload",
+        "Comprehensive spec evaluation",
+        "Iterative improvement through coaching",
+        "Export results capability"
+      ],
+      "path": "/Users/abhisheksivaraman/spec_analyzer_mac",
+      "github": null,
+      "status": "Active"
+    },
+    {
+      "id": 4,
+      "name": "ServiceNow MCP Server",
+      "type": "MCP Server",
+      "description": "A Model Context Protocol (MCP) server implementation for ServiceNow, enabling Claude to interact with ServiceNow instances. Production-ready with extensive feature set.",
+      "tech": ["Python", "Pydantic", "Starlette", "Uvicorn", "httpx"],
+      "features": [
+        "Multiple auth methods (Basic, OAuth, API Key)",
+        "Incident Management tools",
+        "Service Catalog management",
+        "Change Request management",
+        "Knowledge Base management",
+        "Workflow and Script Include management"
+      ],
+      "path": "/Users/abhisheksivaraman/servicenow-mcp",
+      "github": "https://github.com/osomai/servicenow-mcp",
+      "status": "Active",
+      "version": "1.3.0"
+    },
+    {
+      "id": 5,
+      "name": "Claude MCP Tools",
+      "type": "MCP Utilities",
+      "description": "Collection of MCP tool implementations including Memory Vault and Smart Rate Limiter servers.",
+      "tech": ["Python", "MCP Framework", "FAISS", "sentence-transformers", "SQLite"],
+      "features": [
+        "Memory Vault: Store and search conversations with semantic embeddings",
+        "Rate Limiter: Smart rate limiting with token-aware throttling",
+        "Simple and full-featured implementations"
+      ],
+      "path": "/Users/abhisheksivaraman/claude-mcp-tools",
+      "github": null,
+      "status": "Active"
+    },
+    {
+      "id": 6,
+      "name": "Task Master Proxy",
+      "type": "Node.js MCP Proxy",
+      "description": "Express-based MCP proxy server that forwards queries to a Replit-deployed task manager API.",
+      "tech": ["Node.js", "Express", "WebSocket", "node-fetch"],
+      "features": [
+        "MCP protocol implementation",
+        "Forward queries to external task manager",
+        "WebSocket-based communication with Claude Desktop",
+        "Designed for Replit deployment"
+      ],
+      "path": "/Users/abhisheksivaraman/task-master-proxy",
+      "github": null,
+      "status": "Active"
+    },
+    {
+      "id": 7,
+      "name": "Momentum",
+      "type": "Chrome Extension",
+      "description": "A minimal new tab page extension featuring time display, daily quotes from Naval Ravikant, and beautiful background images.",
+      "tech": ["JavaScript", "Chrome Extension Manifest v3", "Bing Image API", "CSS"],
+      "features": [
+        "Current time display (updated every second)",
+        "Naval Ravikant quote rotation",
+        "Beautiful background images from Bing",
+        "Minimal, distraction-free design",
+        "Zero permissions required"
+      ],
+      "path": "/Users/abhisheksivaraman/Momentum",
+      "github": null,
+      "status": "Active"
+    },
+    {
+      "id": 8,
+      "name": "Journal Bot",
+      "type": "Telegram Bot",
+      "description": "Personal journal bot for Telegram that allows users to add and view journal entries through a bot interface.",
+      "tech": ["Python", "python-telegram-bot", "JSON Storage"],
+      "features": [
+        "/start - Welcome message",
+        "/add - Add new journal entries",
+        "/view - Review recent entries",
+        "/help - Help command",
+        "Persistent storage in JSON"
+      ],
+      "path": "/Users/abhisheksivaraman/Journal App",
+      "github": null,
+      "status": "In Development"
+    },
+    {
+      "id": 9,
+      "name": "OpenWebUI",
+      "type": "Python Project",
+      "description": "Python 3.11+ project with minimal setup - appears to be a stub or placeholder project.",
+      "tech": ["Python 3.11+"],
+      "features": [],
+      "path": "/Users/abhisheksivaraman/openwebui",
+      "github": null,
+      "status": "Placeholder"
+    }
+  ],
+  "metadata": {
+    "lastUpdated": "2026-02-11",
+    "totalProjects": 9,
+    "author": "Abhishek Sivaraman",
+    "tagline": "Building with Claude Code"
+  }
+}

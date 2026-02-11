@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Built with Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Side Projects & Hustles</h1>
+            <p class="tagline">Built with <span class="highlight">Claude Code</span></p>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number" id="totalProjects">0</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="lastUpdated">—</span>
+                    <span class="stat-label">Last Updated</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="Desktop App">Desktop Apps</button>
+            <button class="filter-btn" data-filter="Web App">Web Apps</button>
+            <button class="filter-btn" data-filter="MCP Server">MCP Servers</button>
+            <button class="filter-btn" data-filter="Chrome Extension">Extensions</button>
+            <button class="filter-btn" data-filter="Telegram Bot">Bots</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Projects will be dynamically loaded here -->
+        </div>
+
+        <footer>
+            <p>All projects built using Claude Code</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
