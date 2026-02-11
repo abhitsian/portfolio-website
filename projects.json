@@ -163,6 +163,44 @@
     },
     {
       "id": 10,
+      "name": "AI Slop Filter",
+      "type": "macOS App",
+      "description": "macOS menu bar application that filters AI-generated verbose text from any application. Select text anywhere, press a configurable hotkey, and instantly receive clean, concise content. Uses local Ollama for privacy-first AI processing without cloud dependencies or API costs.",
+      "tech": ["Python", "PyQt6", "Ollama", "macOS APIs"],
+      "features": [
+        "Works across all macOS applications (browsers, email, Slack, etc.)",
+        "Configurable global hotkey for instant access",
+        "Privacy-first with local Ollama processing (no cloud, no API costs)",
+        "Side-by-side comparison view of original vs filtered text",
+        "One-click copy to clipboard functionality",
+        "Persistent settings and preferences",
+        "Menu bar integration for easy access"
+      ],
+      "path": "/Users/abhisheksivaraman/ai-slop-filter",
+      "github": "https://github.com/abhitsian/ai-slop-filter",
+      "status": "Active"
+    },
+    {
+      "id": 11,
+      "name": "Video to Claude",
+      "type": "Web App",
+      "description": "Full-stack application that converts videos into Claude-compatible format with synchronized frame extraction and speech transcription. Makes video analysis with Claude's vision capabilities easy by automatically extracting key frames and matching them with spoken content for multimodal AI analysis.",
+      "tech": ["React 19", "TypeScript", "Python", "FastAPI", "FFmpeg", "Whisper.cpp", "SQLite"],
+      "features": [
+        "Drag-and-drop video upload (MP4, MOV, WebM)",
+        "Configurable frame rate extraction using FFmpeg",
+        "Local speech transcription with Whisper.cpp (free, offline)",
+        "Smart timestamp synchronization between frames and speech",
+        "Claude Messages API ready export format",
+        "JSON export with download and copy functionality",
+        "Real-time processing status updates"
+      ],
+      "path": "/Users/abhisheksivaraman/video-to-claude",
+      "github": "https://github.com/abhitsian/video-to-claude",
+      "status": "Active"
+    },
+    {
+      "id": 12,
       "name": "Portfolio Website",
       "type": "Web App",
       "description": "Elegant portfolio website showcasing side projects and hustles built with Claude Code. Features a Stripe Press-inspired minimalist design with beautiful typography, clean layouts, and dynamic project loading from JSON.",
@@ -182,7 +220,7 @@
   ],
   "metadata": {
     "lastUpdated": "2026-02-11",
-    "totalProjects": 10,
+    "totalProjects": 12,
     "author": "Abhishek Sivaraman",
     "tagline": "Building with Claude Code"
   }
