@@ -1,96 +1,40 @@
-# Personal Portfolio - Side Projects
+# Portfolio — Abhishek Sivaraman
 
-A dynamic personal website showcasing all your side projects and hustles built with Claude Code.
+An AI-native product manager's portfolio: skills, projects, apps, writing, and products
+as one body of work. Static site, no build step, deployed on GitHub Pages.
 
-## Features
+## Edit the content
 
-- **Dynamic Loading**: Projects are loaded from a JSON file for easy updates
-- **Filtering**: Filter projects by type (Desktop, Web, MCP, Extensions, Bots)
-- **Responsive Design**: Works beautifully on all devices
-- **Modern UI**: Clean, dark-themed interface with smooth animations
-- **Auto-updating Stats**: Automatically shows total project count and last update date
-
-## How to Use
-
-1. **View the website**: Open `index.html` in your web browser
-2. **Update projects**: Edit `projects.json` to add, remove, or modify projects
-3. **Deploy**: Host on GitHub Pages, Netlify, Vercel, or any static hosting service
-
-## File Structure
+Everything renders from **`data.js`** (`window.PORTFOLIO`). To add a project, app, or
+skill, edit that file and refresh — no build, no framework.
 
 ```
-personal-website/
-├── index.html          # Main HTML file
-├── styles.css          # Styling
-├── app.js             # JavaScript logic
-├── projects.json      # Project data (EDIT THIS TO UPDATE)
-└── README.md          # This file
+portfolio-website/
+├── index.html   # structure (hero, nav, section containers, footer)
+├── styles.css   # "The System" aesthetic — Space Grotesk + IBM Plex Mono
+├── app.js       # renders sections from data.js
+├── data.js      # ← edit this: profile, skills, projects, apps, writing, products
+└── README.md
 ```
 
-## Updating Projects
+## Wire up email capture
 
-To add or update projects, simply edit `projects.json`:
+The Products section has a signup form. Point it at a real endpoint in `data.js`:
 
-```json
-{
-  "id": 10,
-  "name": "Your New Project",
-  "type": "Web App",
-  "description": "Project description here",
-  "tech": ["React", "Node.js"],
-  "features": [
-    "Feature 1",
-    "Feature 2"
-  ],
-  "path": "/path/to/project",
-  "github": "https://github.com/username/repo",
-  "status": "Active"
-}
-```
+- `products.formAction` → a [Formspree](https://formspree.io) / [Buttondown](https://buttondown.email) form URL
+- `products.gumroad` → your Gumroad profile (the "follow" link)
 
-The website will automatically update when you refresh the page.
+Until `formAction` is set, the form shows a friendly placeholder instead of submitting.
 
-## Project Types Available
+## Run locally
 
-- Desktop App
-- Web App
-- MCP Server
-- MCP Utilities
-- MCP Proxy
-- Native Mac App
-- Chrome Extension
-- Telegram Bot
-- Python Project
+Open `index.html` directly in a browser (data is a `.js` file, so no server needed).
 
-## Status Options
+## Deploy
 
-- **Active**: Project is complete and working
-- **In Development**: Project is still being built
-- **Placeholder**: Project is planned or just started
-
-## Deployment
-
-### GitHub Pages
-1. Push this directory to a GitHub repository
-2. Go to Settings > Pages
-3. Select the branch and folder
-4. Your site will be live at `https://username.github.io/repo-name`
-
-### Netlify
-1. Drag and drop the `personal-website` folder to Netlify
-2. Your site will be live instantly
-
-### Vercel
-1. Run `vercel` in this directory
-2. Follow the prompts
-
-## Built With
-
-- HTML5
-- CSS3 (Custom Properties, Grid, Flexbox)
-- Vanilla JavaScript
-- No frameworks or dependencies needed
+Pushed to `main` → served by GitHub Pages at
+`https://abhitsian.github.io/portfolio-website/`.
 
 ---
 
-Built with Claude Code
+Built with Claude Code.

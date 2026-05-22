@@ -1,47 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects — Built with Claude Code</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhishek Sivaraman — AI-native product manager</title>
+<meta name="description" content="An AI-native product manager who builds his own tools — 100+ Claude Code skills, MCP servers, eval kits, and apps. Shipped, used daily, documented.">
+<meta property="og:title" content="Abhishek Sivaraman — AI-native product manager">
+<meta property="og:description" content="I build the tools I use to do the job. 100+ skills, 20+ projects, 12 apps.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#eef0ec">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Side Projects & Hustles</h1>
-            <p class="tagline">Built with <span class="highlight">Claude Code</span></p>
-            <div class="stats">
-                <div class="stat">
-                    <span class="stat-number" id="totalProjects">0</span>
-                    <span class="stat-label">Projects</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" id="lastUpdated">—</span>
-                    <span class="stat-label">Last Updated</span>
-                </div>
-            </div>
-        </header>
+<a class="skip" href="#skills">Skip to content</a>
 
-        <div class="filters">
-            <button class="filter-btn active" data-filter="all">All Projects</button>
-            <button class="filter-btn" data-filter="Desktop App">Desktop Apps</button>
-            <button class="filter-btn" data-filter="macOS App">macOS Apps</button>
-            <button class="filter-btn" data-filter="Web App">Web Apps</button>
-            <button class="filter-btn" data-filter="MCP Server">MCP Servers</button>
-            <button class="filter-btn" data-filter="Chrome Extension">Extensions</button>
-            <button class="filter-btn" data-filter="Telegram Bot">Bots</button>
-        </div>
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="#top">Abhishek Sivaraman</a>
+    <nav class="pillars" aria-label="Sections">
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#apps">Apps</a>
+      <a href="#writing">Writing</a>
+      <a href="#products">Products</a>
+    </nav>
+    <a class="ghlink" href="https://github.com/abhitsian" target="_blank" rel="noopener">github ↗</a>
+  </div>
+</header>
 
-        <div class="projects-grid" id="projectsGrid">
-            <!-- Projects will be dynamically loaded here -->
-        </div>
+<main id="top" class="wrap">
 
-        <footer>
-            <p>All projects built using Claude Code</p>
-        </footer>
+  <section class="hero" id="hero">
+    <div class="hero-meta">
+      <span>Index / 2026</span>
+      <span>AI-native PM</span>
     </div>
+    <h1 id="headline"></h1>
+    <p class="lede" id="blurb"></p>
+    <div class="stats" id="stats" aria-label="At a glance"></div>
+  </section>
 
-    <script src="app.js"></script>
+  <section class="sec" id="skills">
+    <div class="sechead">
+      <span class="sn">01</span>
+      <h2>Skills</h2>
+      <span class="scount" id="skills-count"></span>
+    </div>
+    <p class="secnote" id="skills-note"></p>
+    <div class="skillgrid" id="skills-grid"></div>
+  </section>
+
+  <section class="sec" id="projects">
+    <div class="sechead">
+      <span class="sn">02</span>
+      <h2>Projects</h2>
+      <span class="scount">public repos</span>
+    </div>
+    <div class="ledger" id="projects-list"></div>
+  </section>
+
+  <section class="sec" id="apps">
+    <div class="sechead">
+      <span class="sn">03</span>
+      <h2>Apps</h2>
+      <span class="scount">locally-built</span>
+    </div>
+    <div class="appgrid" id="apps-grid"></div>
+  </section>
+
+  <section class="sec" id="writing">
+    <div class="sechead">
+      <span class="sn">04</span>
+      <h2>Writing</h2>
+      <span class="scount">PM × AI</span>
+    </div>
+    <div id="writing-list"></div>
+  </section>
+
+  <section class="sec" id="products">
+    <div class="sechead">
+      <span class="sn">05</span>
+      <h2>Products</h2>
+      <span class="scount" id="products-status"></span>
+    </div>
+    <div class="product-panel" id="product-panel"></div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap foot">
+    <span class="brand">Abhishek Sivaraman</span>
+    <nav class="foot-links" id="foot-links" aria-label="Links"></nav>
+    <span class="colophon">Built with Claude Code · 2026</span>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

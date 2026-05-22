@@ -1,121 +1,98 @@
-// Load projects from JSON file
-async function loadProjects() {
-    try {
-        const response = await fetch('projects.json');
-        const data = await response.json();
+/* Render the portfolio from window.PORTFOLIO (data.js). */
+(function () {
+  const D = window.PORTFOLIO;
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  if (!D) return;
 
-        // Update stats
-        document.getElementById('totalProjects').textContent = data.metadata.totalProjects;
-        document.getElementById('lastUpdated').textContent = formatDate(data.metadata.lastUpdated);
+  // ---- hero ----
+  // accent the last word of the headline
+  const hw = D.profile.headline.trim().split(" ");
+  const last = hw.pop();
+  $("headline").innerHTML = esc(hw.join(" ")) + ' <span class="o">' + esc(last) + "</span>";
+  $("blurb").textContent = D.profile.blurb;
 
-        // Render projects
-        renderProjects(data.projects);
+  $("stats").innerHTML = D.stats.map((s) =>
+    `<div class="cell"><div class="k">${esc(s.k)}</div><div class="v">${esc(s.v)}</div><div class="note">${esc(s.note)}</div></div>`
+  ).join("");
 
-        // Setup filters
-        setupFilters(data.projects);
-    } catch (error) {
-        console.error('Error loading projects:', error);
-        document.getElementById('projectsGrid').innerHTML = `
-            <div style="grid-column: 1/-1; text-align: center; padding: 2rem;">
-                <p style="color: var(--text-muted);">Error loading projects. Please make sure projects.json is in the same directory.</p>
-            </div>
-        `;
+  // ---- skills ----
+  $("skills-count").textContent = D.skills.total + " total";
+  $("skills-note").textContent = D.skills.note;
+  const skillCells = D.skills.featured.map((s) =>
+    `<div class="skillcell"><div class="top"><span class="nm">${esc(s.name)}</span><span class="cat">${esc(s.cat)}</span></div><div class="ds">${esc(s.desc)}</div></div>`
+  ).join("");
+  $("skills-grid").innerHTML = skillCells +
+    `<div class="skillcell more"><a href="${esc(D.profile.github)}?tab=repositories" target="_blank" rel="noopener">+ ${esc(D.skills.total)} skills →</a></div>`;
+
+  // ---- projects (ledger) ----
+  $("projects-list").innerHTML = D.projects.map((p, i) => {
+    const n = String(i + 1).padStart(2, "0");
+    const tags = (p.tags || []).map((t) => `<span class="tag">${esc(t)}</span>`).join("");
+    const href = p.live || p.github || "#";
+    return `<a class="lrow" href="${esc(href)}" target="_blank" rel="noopener">
+      <span class="nn">${n}</span>
+      <span class="body">
+        <span class="nm">${esc(p.name)}</span><span class="arrow">↗</span>
+        <span class="tags">${tags}</span>
+        <span class="ds">${esc(p.desc)}</span>
+      </span></a>`;
+  }).join("");
+
+  // ---- apps ----
+  $("apps-grid").innerHTML = D.apps.map((a) =>
+    `<div class="appcell"><div class="nm">${esc(a.name)}<span class="lbl">local</span></div><div class="ds">${esc(a.desc)}</div></div>`
+  ).join("");
+
+  // ---- writing ----
+  $("writing-list").innerHTML = D.writing.map((w) => {
+    const count = (w.tags && w.tags[0]) || "";
+    const num = (count.match(/\d+/) || [""])[0];
+    return `<div class="writecard">
+      <div class="big">${esc(num)}<small>${esc(count.replace(/^\d+\s*/, "") || "articles")}</small></div>
+      <div>
+        <h3>${esc(w.name)}</h3>
+        <p>${esc(w.desc)}</p>
+        <a class="go" href="${esc(w.live || w.github)}" target="_blank" rel="noopener">read on github ↗</a>
+      </div></div>`;
+  }).join("");
+
+  // ---- products ----
+  const pr = D.products;
+  $("products-status").textContent = pr.status;
+  const teasers = pr.teasers.map((t) => `<div class="t"><b>${esc(t.name)}</b><span>${esc(t.note)}</span></div>`).join("");
+  $("product-panel").innerHTML = `
+    <div class="soon">${esc(pr.status)}</div>
+    <div class="ptitle">PM tools, packaged and for sale.</div>
+    <div class="pblurb">${esc(pr.blurb)}</div>
+    <div class="teasers">${teasers}</div>
+    <form class="signup" id="signup" action="${esc(pr.formAction)}" method="POST">
+      <input type="email" name="email" placeholder="you@email.com" required aria-label="Email">
+      <button type="submit">Notify me</button>
+    </form>
+    <div class="pfoot">No spam — one email when the first product ships.${pr.gumroad ? ` Or follow on <a href="${esc(pr.gumroad)}" target="_blank" rel="noopener">Gumroad ↗</a>.` : ""}</div>`;
+
+  // graceful form handling (until a real endpoint is wired)
+  const form = $("signup");
+  if (form) form.addEventListener("submit", (e) => {
+    if (form.action.includes("YOUR_FORM_ID")) {
+      e.preventDefault();
+      form.innerHTML = `<div class="ok">✓ Thanks — wire a Formspree/Buttondown endpoint in data.js to start collecting.</div>`;
     }
-}
+  });
 
-function renderProjects(projects, filterType = 'all') {
-    const grid = document.getElementById('projectsGrid');
+  // ---- footer links ----
+  const L = D.profile.links;
+  $("foot-links").innerHTML = [
+    ["github", L.github], ["x / twitter", L.x], ["email", L.email]
+  ].map(([t, h]) => `<a href="${esc(h)}" target="_blank" rel="noopener">${esc(t)}</a>`).join("");
 
-    const filteredProjects = filterType === 'all'
-        ? projects
-        : projects.filter(p => p.type === filterType);
-
-    if (filteredProjects.length === 0) {
-        grid.innerHTML = `
-            <div style="grid-column: 1/-1; text-align: center; padding: 2rem;">
-                <p style="color: var(--text-muted);">No projects found for this category.</p>
-            </div>
-        `;
-        return;
-    }
-
-    grid.innerHTML = filteredProjects.map(project => `
-        <div class="project-card" data-type="${project.type}">
-            <div class="project-left">
-                <div class="project-header">
-                    <h2 class="project-title">${project.name}</h2>
-                    <span class="project-type">${project.type}</span>
-                    ${project.version ? `<span class="version-badge">v${project.version}</span>` : ''}
-                </div>
-
-                ${project.tech.length > 0 ? `
-                    <div class="tech-stack">
-                        <span class="tech-stack-label">Technologies</span>
-                        ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                    </div>
-                ` : ''}
-            </div>
-
-            <div class="project-right">
-                <p class="project-description">${project.description}</p>
-
-                ${project.features.length > 0 ? `
-                    <div class="features">
-                        <h3 class="features-title">Key Features</h3>
-                        <ul class="features-list">
-                            ${project.features.map(feature => `<li>${feature}</li>`).join('')}
-                        </ul>
-                    </div>
-                ` : ''}
-
-                <div class="project-footer">
-                    <span class="status-badge ${getStatusClass(project.status)}">
-                        ${project.status}
-                    </span>
-                    ${project.github ? `
-                        <a href="${project.github}" target="_blank" class="github-link">
-                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                            </svg>
-                            View on GitHub
-                        </a>
-                    ` : ''}
-                </div>
-            </div>
-        </div>
-    `).join('');
-}
-
-function setupFilters(projects) {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active state
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            // Filter projects
-            const filterType = btn.dataset.filter;
-            renderProjects(projects, filterType);
-        });
-    });
-}
-
-function getStatusClass(status) {
-    const statusMap = {
-        'Active': 'status-active',
-        'In Development': 'status-development',
-        'Placeholder': 'status-placeholder'
-    };
-    return statusMap[status] || 'status-placeholder';
-}
-
-function formatDate(dateString) {
-    const date = new Date(dateString);
-    const options = { year: 'numeric', month: 'short', day: 'numeric' };
-    return date.toLocaleDateString('en-US', options);
-}
-
-// Load projects when page loads
-document.addEventListener('DOMContentLoaded', loadProjects);
+  // ---- reveal on scroll ----
+  const io = "IntersectionObserver" in window
+    ? new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" })
+    : null;
+  document.querySelectorAll(".sec, .hero").forEach((el) => {
+    el.classList.add("reveal");
+    if (io) io.observe(el); else el.classList.add("in");
+  });
+})();
