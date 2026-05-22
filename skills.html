@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills — Abhishek Sivaraman</title>
+<meta name="description" content="A searchable, categorized library of generic Claude Code skills built by Abhishek Sivaraman.">
+<meta name="theme-color" content="#eef0ec">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="index.html">Abhishek Sivaraman</a>
+    <nav class="pillars" aria-label="Sections">
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#apps">Apps</a>
+      <a href="index.html#writing">Writing</a>
+      <a href="index.html#products">Products</a>
+    </nav>
+    <a class="ghlink" href="https://github.com/abhitsian" target="_blank" rel="noopener">github ↗</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="sk-hero">
+    <div class="d-back"><a href="index.html#skills">← back</a></div>
+    <div class="hero-meta"><span>Skills library</span><span id="sk-count">—</span></div>
+    <h1 class="sk-title">The generic skills, <span class="o">searchable.</span></h1>
+    <p class="lede">A subset of my 100+ Claude Code skills — the ones generic enough for anyone. Search by name or what it does; filter by category; click a skill to read it.</p>
+  </section>
+
+  <div class="sk-controls">
+    <input type="search" id="sk-search" placeholder="Search skills…" aria-label="Search skills" autocomplete="off">
+    <div class="sk-cats" id="sk-cats"></div>
+  </div>
+
+  <div class="sk-grid" id="sk-grid"></div>
+  <p class="sk-empty" id="sk-empty" hidden>No skills match that.</p>
+</main>
+
+<footer class="footer">
+  <div class="wrap foot">
+    <span class="brand">Abhishek Sivaraman</span>
+    <nav class="foot-links" id="foot-links" aria-label="Links"></nav>
+    <span class="colophon">Built with Claude Code · 2026</span>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="skills-data.js"></script>
+<script src="skills.js"></script>
+</body>
+</html>
