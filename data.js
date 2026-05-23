@@ -41,7 +41,7 @@ window.PORTFOLIO = {
       about:"Claude Code writes every session to disk as a transcript. sessions-mcp turns that pile into something the agent can use mid-conversation — search across everything you've ever done, pull a clean copy of any session, or tail one that's running right now in another terminal.",
       features:["Four MCP tools: list, search, get, tail","Reads the JSONL transcripts Claude already writes — zero deps","Tail a session running live in another terminal","Strips thinking + tool-result noise so the agent sees real conversation"] },
 
-    { slug:"receipts", name:"receipts", meta:true, tags:["Tool","Python"], github:"https://github.com/abhitsian/receipts",
+    { slug:"receipts", name:"receipts", meta:true, image:"assets/receipts.png", tags:["Tool","Python"], github:"https://github.com/abhitsian/receipts",
       desc:"Keep the receipts of your Claude Code usage — dashboard, insights, shareable cards.",
       about:"A dashboard for what you actually did with Claude Code: tokens, streaks, hours saved, and brag-worthy receipt cards you can share. Turns invisible AI usage into something you can see and show.",
       features:["Local usage dashboard — tokens, streaks, hours saved","Shareable receipt cards","Insights on how you actually work with Claude","Runs locally"] },
@@ -118,17 +118,17 @@ window.PORTFOLIO = {
       about:"Cmd+Shift+Space brings up a Claude overlay anywhere. It screenshots what you're looking at, queries Claude Code with context, and answers without leaving what you're doing.",
       features:["Global hotkey overlay","Screenshots your screen for context","Queries Claude Code in place","Ambient — always a keystroke away"] },
 
-    { slug:"taste-simulator", name:"Taste Simulator", tags:["Python"],
+    { slug:"taste-simulator", name:"Taste Simulator", image:"assets/taste-simulator.png", tags:["Python"],
       desc:"Train product judgment on real strategy scenarios, graded by Claude.",
       about:"A flight simulator for product taste. Work real strategy scenarios drawn from what's actually happening in the industry; Claude grades your reasoning across five dimensions so you build judgment rep by rep.",
       features:["Real, current strategy scenarios","Claude grades reasoning across 5 dimensions","Build product judgment, rep by rep","Great for PM interview prep"] },
 
-    { slug:"brain-dump", name:"Brain Dump", tags:["Python"],
+    { slug:"brain-dump", name:"Brain Dump", image:"assets/brain-dump.png", tags:["Python"],
       desc:"Freeform capture → AI classifier → tasks, ideas, journal, saved items.",
       about:"One box for everything in your head. Dump a thought and an AI classifier routes it — task, idea, journal entry, saved item — so capture stays frictionless and nothing gets lost.",
       features:["One freeform capture box","AI classifies into tasks/ideas/journal/saved","Replaces the personal-WhatsApp-to-self habit","Frictionless capture"] },
 
-    { slug:"tab-tasks", name:"Tab Tasks", tags:["Python"],
+    { slug:"tab-tasks", name:"Tab Tasks", image:"assets/tab-tasks.png", tags:["Python"],
       desc:"Reads your open Chrome tabs and clusters them into the tasks you're on.",
       about:"Your open tabs are a map of what you're working on. Tab Tasks reads them on demand, clusters them into the tasks they belong to, and flags the ones that have gone stale.",
       features:["Reads open Chrome tabs on demand","Clusters tabs into tasks","Flags stale tabs","On-demand board"] },
