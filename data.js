@@ -108,7 +108,7 @@ window.PORTFOLIO = {
   ],
 
   apps: [
-    { slug:"agents-chat", name:"Agents Chat", meta:true, tags:["Node"],
+    { slug:"agents-chat", name:"Agents Chat", meta:true, tags:["Node"], github:"https://github.com/abhitsian/agents-chat",
       desc:"Live group chat with a Claude council that debates and converges.",
       about:"Spawn a room with a question and watch a council of Claude agents auto-form, join, and debate in peer mode across rounds — then converge on an answer. Multiple perspectives instead of one.",
       features:["A council of agents in a shared room","Watch them debate across rounds","Converges on an answer","Live group-chat UI"] },
@@ -128,7 +128,7 @@ window.PORTFOLIO = {
       about:"One box for everything in your head. Dump a thought and an AI classifier routes it — task, idea, journal entry, saved item — so capture stays frictionless and nothing gets lost.",
       features:["One freeform capture box","AI classifies into tasks/ideas/journal/saved","Replaces the personal-WhatsApp-to-self habit","Frictionless capture"] },
 
-    { slug:"tab-tasks", name:"Tab Tasks", image:"assets/tab-tasks.png", tags:["Python"],
+    { slug:"tab-tasks", name:"Tab Tasks", image:"assets/tab-tasks.png", tags:["Python"], github:"https://github.com/abhitsian/tab-tasks",
       desc:"Reads your open Chrome tabs and clusters them into the tasks you're on.",
       about:"Your open tabs are a map of what you're working on. Tab Tasks reads them on demand, clusters them into the tasks they belong to, and flags the ones that have gone stale.",
       features:["Reads open Chrome tabs on demand","Clusters tabs into tasks","Flags stale tabs","On-demand board"] },
@@ -138,7 +138,7 @@ window.PORTFOLIO = {
       about:"A design partner for HTML mocks. Drop in any mock, select a region, and say what you want — Riff returns a few labeled options (from your own patterns, best practice, or something new) rendered on the mock's own design tokens, then writes the ones you keep back into the file. The evolution of an earlier token-tuner.",
       features:["Point at any mock file or folder","Draw a box + comment on any region","Get 2–3 redesign options on the mock's own tokens","Keeps the options you choose, written back to the file"] },
 
-    { slug:"scraps", name:"Scraps", meta:true, tags:["Python"],
+    { slug:"scraps", name:"Scraps", meta:true, tags:["Python"], github:"https://github.com/abhitsian/scraps",
       desc:"A lightweight inbox of parked snippets, ready to promote.",
       about:"The lightest possible capture. Park a snippet the moment you want to keep it, then later open it in a review surface or promote it to a real document. An inbox for half-formed things.",
       features:["Park a snippet in one move","Inbox for half-formed ideas","Promote to a document later","Pairs with coauthor"] },
