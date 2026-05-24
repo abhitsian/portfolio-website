@@ -133,10 +133,10 @@ window.PORTFOLIO = {
       about:"Your open tabs are a map of what you're working on. Tab Tasks reads them on demand, clusters them into the tasks they belong to, and flags the ones that have gone stale.",
       features:["Reads open Chrome tabs on demand","Clusters tabs into tasks","Flags stale tabs","On-demand board"] },
 
-    { slug:"token-tuner", name:"Token Tuner", tags:["Node"],
-      desc:"DialKit for HTML mocks — drag a mock's CSS design tokens live.",
-      about:"Point it at any mock file or folder and drag its CSS design tokens live — colors, spacing, type — then copy or save the changes back. Tweak a UI by feel instead of describing it in text.",
-      features:["Point at any mock file or folder","Drag CSS tokens live","Copy or save changes back","Tune by feel, not by prose"] },
+    { slug:"riff", name:"Riff", tags:["Node"],
+      desc:"Point at any mock, draw a box and comment, and get redesign options on the mock's own design tokens.",
+      about:"A design partner for HTML mocks. Drop in any mock, select a region, and say what you want — Riff returns a few labeled options (from your own patterns, best practice, or something new) rendered on the mock's own design tokens, then writes the ones you keep back into the file. The evolution of an earlier token-tuner.",
+      features:["Point at any mock file or folder","Draw a box + comment on any region","Get 2–3 redesign options on the mock's own tokens","Keeps the options you choose, written back to the file"] },
 
     { slug:"scraps", name:"Scraps", meta:true, tags:["Python"],
       desc:"A lightweight inbox of parked snippets, ready to promote.",
