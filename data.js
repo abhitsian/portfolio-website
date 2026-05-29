@@ -113,6 +113,11 @@ window.PORTFOLIO = {
   ],
 
   apps: [
+    { slug:"taste-library", name:"Taste Library", image:"assets/taste-library.png", tags:["Tool","Python"],
+      desc:"Curated taste anchors — text and image captures from the web, searchable.",
+      about:"A personal library for things worth keeping — articles, images, talks, whatever catches the eye. Capture from anywhere on the web with a Chrome extension or paste a URL; the library pulls clean text and YouTube transcripts so the page is searchable, not just bookmarked.",
+      features:["Chrome extension capture + manual URL/text/image","YouTube transcript extraction","Full-text search across everything captured","Local, lives on your machine"] },
+
     { slug:"agents-chat", name:"Agents Chat", meta:true, tags:["Node"], github:"https://github.com/abhitsian/agents-chat",
       desc:"Live group chat with a Claude council that debates and converges.",
       about:"Spawn a room with a question and watch a council of Claude agents auto-form, join, and debate in peer mode across rounds — then converge on an answer. Multiple perspectives instead of one.",
