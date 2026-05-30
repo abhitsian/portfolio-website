@@ -44,8 +44,12 @@
     const n = String(i + 1).padStart(2, "0");
     const tags = (p.tags || []).map((t) => `<span class="tag">${esc(t)}</span>`).join("");
     const meta = p.meta ? `<span class="metadot" title="Claude-workflow tool">●</span>` : "";
+    const logo = p.logo
+      ? `<span class="logo"><img src="${esc(p.logo)}" alt="" loading="lazy"></span>`
+      : `<span class="logo placeholder">${esc(p.name[0].toUpperCase())}</span>`;
     return `<a class="lrow" href="${href(p.slug)}">
       <span class="nn">${n}</span>
+      ${logo}
       <span class="body">
         <span class="nm">${esc(p.name)}${meta}</span><span class="arrow">→</span>
         <span class="tags">${tags}</span>
@@ -54,11 +58,16 @@
   }).join("");
 
   // ---- apps → detail pages ----
-  $("apps-grid").innerHTML = D.apps.map((a) =>
-    `<a class="appcell" href="${href(a.slug)}">
+  $("apps-grid").innerHTML = D.apps.map((a) => {
+    const logo = a.logo
+      ? `<img class="applogo" src="${esc(a.logo)}" alt="" loading="lazy">`
+      : `<span class="applogo placeholder">${esc(a.name[0].toUpperCase())}</span>`;
+    return `<a class="appcell" href="${href(a.slug)}">
+       ${logo}
        <div class="nm">${esc(a.name)}${a.meta ? '<span class="metadot">●</span>' : ""}<span class="lbl">local</span></div>
        <div class="ds">${esc(a.desc)}</div>
-     </a>`).join("");
+     </a>`;
+  }).join("");
 
   // ---- writing ----
   $("writing-list").innerHTML = D.writing.map((w) => {

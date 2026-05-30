@@ -41,7 +41,7 @@ window.PORTFOLIO = {
       about:"Claude Code writes every session to disk as a transcript. sessions-mcp turns that pile into something the agent can use mid-conversation — search across everything you've ever done, pull a clean copy of any session, or tail one that's running right now in another terminal.",
       features:["Four MCP tools: list, search, get, tail","Reads the JSONL transcripts Claude already writes — zero deps","Tail a session running live in another terminal","Strips thinking + tool-result noise so the agent sees real conversation"] },
 
-    { slug:"dispatch", name:"dispatch", meta:true, tags:["macOS","Python"], github:"https://github.com/abhitsian/dispatch",
+    { slug:"dispatch", name:"dispatch", meta:true, logo:"assets/dispatch-logo.png", audio:"assets/dispatch-sample.mp3", tags:["macOS","Python"], github:"https://github.com/abhitsian/dispatch",
       desc:"Menu-bar app that turns your live Claude Code sessions into a radio channel.",
       about:"Running three terminals with three Claude sessions means three permission prompts to chase, three places to alt-tab to, three trains of thought to keep apart. dispatch puts them all on one channel — every live session shows up as a numbered unit, every tool-call approval lands in one menu, and voice transmits get typed straight into the right terminal.",
       features:["Auto-discovers live Claude sessions via the pid registry","One-click Allow / Deny for every Bash/Write/Edit hook across all sessions","Voice → whisper → typed into iTerm/Terminal via AppleScript","Mirrors Claude's permissions.allow so it doesn't over-prompt","Web dashboard for visual review"] },

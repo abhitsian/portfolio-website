@@ -80,7 +80,17 @@ a{ color:inherit; text-decoration:none; }
 
 /* ---------- ledger (projects) ---------- */
 .ledger{ border-top:1px solid var(--line-strong); }
-.lrow{ display:grid; grid-template-columns:42px 1fr; gap:0 16px; padding:18px 8px; border-bottom:1px solid var(--line); align-items:start; position:relative; transition:background .18s, padding-left .18s; }
+.lrow{ display:grid; grid-template-columns:42px 44px 1fr; gap:0 16px; padding:18px 8px; border-bottom:1px solid var(--line); align-items:start; position:relative; transition:background .18s, padding-left .18s; }
+.lrow .logo{ width:40px; height:40px; border-radius:9px; overflow:hidden; display:flex; align-items:center; justify-content:center; background:var(--panel); border:1px solid var(--line); flex-shrink:0; }
+.lrow .logo img{ width:100%; height:100%; object-fit:cover; }
+.lrow .logo.placeholder{ font-family:var(--mono); font-size:16px; font-weight:600; color:var(--faint); }
+.appcell .applogo{ width:48px; height:48px; border-radius:10px; overflow:hidden; display:flex; align-items:center; justify-content:center; background:var(--panel); border:1px solid var(--line); margin-bottom:10px; }
+.appcell .applogo img, .appcell img.applogo{ width:100%; height:100%; object-fit:cover; display:block; }
+.appcell .applogo.placeholder{ font-family:var(--mono); font-size:18px; font-weight:600; color:var(--faint); }
+.d-visual.logo-hero{ background:var(--panel); border:1px solid var(--line); padding:48px 24px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; }
+.d-visual.logo-hero img{ width:180px; height:180px; border-radius:24px; box-shadow:0 4px 24px rgba(0,0,0,.08); }
+.d-audio{ margin:24px 0; }
+.d-audio audio{ width:100%; max-width:520px; margin-top:8px; }
 .lrow:hover{ background:var(--panel); padding-left:16px; }
 .lrow .nn{ font-family:var(--mono); font-size:12px; color:var(--faint); padding-top:3px; }
 .lrow:hover .nn{ color:var(--accent); }

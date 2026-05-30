@@ -35,10 +35,20 @@
   if (it.live) links.push(`<a class="d-cta ghost" href="${esc(it.live)}" target="_blank" rel="noopener">Live <span>↗</span></a>`);
   if (!it.github && !it.live) links.push(`<span class="d-note">Local app — not yet public.</span>`);
 
-  // visual hero: real screenshot, else generated cover (mounted after render)
-  const visual = it.image
-    ? `<figure class="d-visual shot a1"><img src="${esc(it.image)}" alt="${esc(it.name)} screenshot" loading="eager"><figcaption>Screenshot — ${esc(it.name)}</figcaption></figure>`
-    : `<div class="d-visual cover a1" id="cover"></div>`;
+  // visual hero priority: real screenshot, then logo, then generated cover
+  let visual;
+  if (it.image) {
+    visual = `<figure class="d-visual shot a1"><img src="${esc(it.image)}" alt="${esc(it.name)} screenshot" loading="eager"><figcaption>Screenshot — ${esc(it.name)}</figcaption></figure>`;
+  } else if (it.logo) {
+    visual = `<figure class="d-visual logo-hero a1"><img src="${esc(it.logo)}" alt="${esc(it.name)} logo" loading="eager"><figcaption>${esc(it.name)}</figcaption></figure>`;
+  } else {
+    visual = `<div class="d-visual cover a1" id="cover"></div>`;
+  }
+
+  // Optional audio sample (e.g. dispatch's radio voice)
+  const audio = it.audio
+    ? `<section class="d-audio a2"><span class="d-label">Listen</span><audio controls preload="metadata" src="${esc(it.audio)}"></audio></section>`
+    : "";
 
   elDetail.innerHTML = `
     <div class="d-back a0"><a href="index.html#${it.kind.toLowerCase()}s">← ${esc(it.kind)}s</a></div>
@@ -49,6 +59,7 @@
       <div class="d-tags">${tags}</div>
     </header>
     ${visual}
+    ${audio}
     <section class="d-about a2"><span class="d-label">What it is</span><p>${esc(it.about || it.desc || "")}</p></section>
     ${features ? `<section class="d-features a3"><span class="d-label">Highlights</span><ol class="d-flist">${features}</ol></section>` : ""}
     <section class="d-foot a4">${links.join("")}</section>
