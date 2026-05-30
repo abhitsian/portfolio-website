@@ -32,6 +32,52 @@ DATA_JS = ROOT / "data.js"
 SIZE = 256
 RADIUS = 56
 
+# Per-slug symbolic glyph. The point: a portfolio of 30 logos that LOOK
+# different and READ like what the thing does, instead of 30 colored squares
+# with letters. Slug → emoji rendered at large size on the gradient bg.
+GLYPHS: dict[str, str] = {
+    # Claude Code workflow tools
+    "sessions-mcp":            "🧵",
+    "dispatch":                "📡",
+    "receipts":                "🧾",
+    "claude-desk":             "🖥️",
+    "coauthor":                "✍️",
+    "compound-pm":             "⚙️",
+    "claude-mcp-tools":        "🔌",
+    "ambient-ai":              "💡",
+    "agents-chat":             "💬",
+
+    # PM / eval / spec tools
+    "ai-eval-kit":             "🧪",
+    "spec-analyzer-mac":       "📄",
+    "ai-slop-filter":          "🧹",
+
+    # Coaching / presentation
+    "poised":                  "🎯",
+    "speakcoach":              "🗣️",
+    "improv-adventure":        "🎭",
+
+    # Knowledge / capture
+    "tldl":                    "📚",
+    "tldl-offline":            "📖",
+    "brain-dump":              "🧠",
+    "tab-tasks":               "🗂️",
+    "scraps":                  "📎",
+    "cabinet":                 "🗄️",
+    "bookmark-resurrector":    "🔖",
+    "taste-library":           "🖼️",
+    "taste-simulator":         "✈️",
+
+    # Design / interface
+    "design-talk":             "🎨",
+    "interface-craft-demo":    "🪄",
+    "riff":                    "🎛️",
+
+    # Media / writing
+    "video-to-claude":         "🎥",
+    "llm-concepts-for-pms":    "🤖",
+}
+
 
 # ---------- pick a deterministic palette per slug ----------
 
@@ -98,6 +144,22 @@ def _load_font(size_px: int) -> ImageFont.ImageFont:
     return ImageFont.load_default()
 
 
+def _load_emoji_font() -> ImageFont.ImageFont | None:
+    """Apple Color Emoji ships as bitmap-only at fixed sizes (160px is the
+    largest); requesting any other size raises. PIL handles it through the
+    `size=137` or `size=160` trick — we render at 160 then downscale."""
+    p = "/System/Library/Fonts/Apple Color Emoji.ttc"
+    if not Path(p).exists():
+        return None
+    try:
+        return ImageFont.truetype(p, 137)  # 137 is the supported "emoji" size
+    except OSError:
+        try:
+            return ImageFont.truetype(p, 160)
+        except OSError:
+            return None
+
+
 def render(slug: str, name: str) -> Image.Image:
     top, bot, accent = palette_for(slug)
     img = Image.new("RGBA", (SIZE, SIZE), (0, 0, 0, 0))
@@ -112,33 +174,64 @@ def render(slug: str, name: str) -> Image.Image:
     for y in range(int(SIZE * 0.35)):
         a = int(28 * (1 - y / (SIZE * 0.35)))
         hd.line([(0, y), (SIZE, y)], fill=(255, 255, 255, a))
-    h_alpha = highlight.split()[3]
     from PIL import ImageChops
+    h_alpha = highlight.split()[3]
     highlight.putalpha(ImageChops.multiply(h_alpha, _rounded_mask(SIZE, RADIUS)))
     img = Image.alpha_composite(img, highlight)
 
-    # glyph — uppercase 1-2 letters, large
-    glyph = _glyph_for(name)
-    font_size = 130 if len(glyph) == 1 else 100
-    font = _load_font(font_size)
-    draw = ImageDraw.Draw(img)
-    bbox = draw.textbbox((0, 0), glyph, font=font)
-    gw, gh = bbox[2] - bbox[0], bbox[3] - bbox[1]
-    tx = (SIZE - gw) // 2 - bbox[0]
-    ty = (SIZE - gh) // 2 - bbox[1] - 8  # nudge up so it looks centered
-    # soft glyph shadow
-    shadow = Image.new("RGBA", (SIZE, SIZE), (0, 0, 0, 0))
-    ImageDraw.Draw(shadow).text((tx + 2, ty + 4), glyph, font=font, fill=(0, 0, 0, 90))
-    shadow = shadow.filter(ImageFilter.GaussianBlur(2))
-    img = Image.alpha_composite(img, shadow)
-    draw = ImageDraw.Draw(img)
-    draw.text((tx, ty), glyph, font=font, fill=(255, 255, 255, 240))
+    # Emoji glyph (preferred) — symbolic, instantly readable; falls back to
+    # letter glyph for any slug missing from GLYPHS or if the emoji font is
+    # unavailable.
+    emoji = GLYPHS.get(slug)
+    emoji_font = _load_emoji_font() if emoji else None
 
-    # corner accent dot
+    if emoji and emoji_font is not None:
+        # Render the emoji on its own RGBA layer, then composite — Apple Color
+        # Emoji is bitmap and needs embedded_color=True. We render at 137 (the
+        # supported size) and let it sit centered on the 256 canvas.
+        emoji_layer = Image.new("RGBA", (SIZE, SIZE), (0, 0, 0, 0))
+        ed = ImageDraw.Draw(emoji_layer)
+        bbox = ed.textbbox((0, 0), emoji, font=emoji_font, embedded_color=True)
+        gw, gh = bbox[2] - bbox[0], bbox[3] - bbox[1]
+        tx = (SIZE - gw) // 2 - bbox[0]
+        ty = (SIZE - gh) // 2 - bbox[1] - 4
+        # soft drop shadow under the emoji for legibility on the gradient
+        shadow = Image.new("RGBA", (SIZE, SIZE), (0, 0, 0, 0))
+        ImageDraw.Draw(shadow).text(
+            (tx + 2, ty + 4), emoji, font=emoji_font,
+            fill=(0, 0, 0, 100), embedded_color=False,
+        )
+        shadow = shadow.filter(ImageFilter.GaussianBlur(4))
+        img = Image.alpha_composite(img, shadow)
+
+        ed.text((tx, ty), emoji, font=emoji_font, embedded_color=True)
+        img = Image.alpha_composite(img, emoji_layer)
+    else:
+        # Letter fallback
+        glyph = _glyph_for(name)
+        font_size = 130 if len(glyph) == 1 else 100
+        font = _load_font(font_size)
+        draw = ImageDraw.Draw(img)
+        bbox = draw.textbbox((0, 0), glyph, font=font)
+        gw, gh = bbox[2] - bbox[0], bbox[3] - bbox[1]
+        tx = (SIZE - gw) // 2 - bbox[0]
+        ty = (SIZE - gh) // 2 - bbox[1] - 8
+        shadow = Image.new("RGBA", (SIZE, SIZE), (0, 0, 0, 0))
+        ImageDraw.Draw(shadow).text(
+            (tx + 2, ty + 4), glyph, font=font, fill=(0, 0, 0, 90))
+        shadow = shadow.filter(ImageFilter.GaussianBlur(2))
+        img = Image.alpha_composite(img, shadow)
+        draw = ImageDraw.Draw(img)
+        draw.text((tx, ty), glyph, font=font, fill=(255, 255, 255, 240))
+
+    # corner accent dot — same on both glyph paths
+    draw = ImageDraw.Draw(img)
     dot_r = 9
     cx_dot, cy_dot = SIZE - 28, 28
-    draw.ellipse((cx_dot - dot_r, cy_dot - dot_r, cx_dot + dot_r, cy_dot + dot_r),
-                 fill=(*accent, 255))
+    draw.ellipse(
+        (cx_dot - dot_r, cy_dot - dot_r, cx_dot + dot_r, cy_dot + dot_r),
+        fill=(*accent, 255),
+    )
 
     return img
 
