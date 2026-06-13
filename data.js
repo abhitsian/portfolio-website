@@ -26,7 +26,7 @@ window.PORTFOLIO = {
     label: "A throughline",
     title: "Tools that make AI a better collaborator.",
     blurb: "A lot of this work points the same direction: the better my tools for working with Claude, the better everything else gets. So I build for the workflow itself — history, cost, memory, document review, parallel sessions — then use it to build the rest.",
-    slugs: ["claude-desk", "coauthor", "sessions-mcp", "receipts", "compound-pm", "claude-mcp-tools", "agents-chat", "ambient-ai"]
+    slugs: ["handle", "claude-desk", "coauthor", "sessions-mcp", "receipts", "compound-pm", "claude-mcp-tools", "agents-chat", "ambient-ai"]
   },
 
   skills: {
@@ -36,6 +36,11 @@ window.PORTFOLIO = {
   },
 
   projects: [
+    { slug:"handle", name:"Handle", meta:true, tags:["MCP","macOS","Chrome"], github:"https://github.com/abhitsian/handle", live:"https://abhitsian.github.io/handle/",
+      desc:"Give your agent a handle on every open Chrome tab — reference and read your real, logged-in tabs.",
+      about:"The tabs you have open are your working context — the spec, the Figma, the doc you're logged into — but your agent can't see them. Handle gives every open Chrome tab a stable handle (t1, t2…) you can name, and a read that pulls the tab's live, logged-in content into the conversation: past the login walls and JavaScript that defeat a plain fetch. Text where text exists, screenshots read with vision where it doesn't.",
+      features:["Stable handles — reference a tab by name, by content, or just 'what I'm looking at'","read pulls live, logged-in page content past auth walls","Format-aware: HTML & Markdown, Google Docs/Sheets export, Figma/PDF/Office via screenshot→vision","Ships three ways: a CLI, a board, and an MCP server","Pure Python stdlib — no API key"] },
+
     { slug:"margin", name:"Margin", tags:["macOS","Electron","Provenance"], github:"https://github.com/abhitsian/margin", live:"https://abhitsian.github.io/margin/",
       desc:"A writing app that records how a document was made: what you typed, what AI wrote, what you quoted.",
       about:"AI made writing cheap and trusting it expensive. Margin captures provenance as you write: typed text is yours, pasted text declares its source, AI-written text carries the prompt that produced it, and third-party docs are marked imported. It exports a clean document with a verifiable authorship record one toggle away, and lets a coding agent edit the doc while recording provenance through a CLI and an MCP server. Use AI for writing, share the receipts. A concept tool, built and used.",
