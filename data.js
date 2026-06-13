@@ -17,7 +17,7 @@ window.PORTFOLIO = {
   stats: [
     { k: "skills",   v: "100+", note: "custom Claude Code skills" },
     { k: "projects", v: "20+",  note: "public repos" },
-    { k: "apps",     v: "13",   note: "locally-built tools" },
+    { k: "apps",     v: "14",   note: "locally-built tools" },
     { k: "writing",  v: "39",   note: "PM × AI articles" }
   ],
 
@@ -36,6 +36,11 @@ window.PORTFOLIO = {
   },
 
   projects: [
+    { slug:"margin", name:"Margin", tags:["macOS","Electron","Provenance"], github:"https://github.com/abhitsian/margin", live:"https://abhitsian.github.io/margin/",
+      desc:"A writing app that records how a document was made: what you typed, what AI wrote, what you quoted.",
+      about:"AI made writing cheap and trusting it expensive. Margin captures provenance as you write: typed text is yours, pasted text declares its source, AI-written text carries the prompt that produced it, and third-party docs are marked imported. It exports a clean document with a verifiable authorship record one toggle away, and lets a coding agent edit the doc while recording provenance through a CLI and an MCP server. Use AI for writing, share the receipts. A concept tool, built and used.",
+      features:["Provenance captured by how text enters: typed, AI, source, or imported","Shareable authorship record: clean prose, full provenance one toggle away, plus a SHA-256 fingerprint","Own an AI passage with a reason. The origin stays recorded; the framing changes","Claude Code edits via a CLI and MCP server, attributed and live-reloaded into the editor","Client-side verifier recomputes the fingerprint and flags edits made after signing"] },
+
     { slug:"sessions-mcp", logo:"assets/sessions-mcp-logo.png", name:"sessions-mcp", meta:true, tags:["MCP","Node"], github:"https://github.com/abhitsian/sessions-mcp",
       desc:"Search, read, and tail past and live Claude Code sessions.",
       about:"Claude Code writes every session to disk as a transcript. sessions-mcp turns that pile into something the agent can use mid-conversation — search across everything you've ever done, pull a clean copy of any session, or tail one that's running right now in another terminal.",
