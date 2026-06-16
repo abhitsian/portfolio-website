@@ -37,9 +37,9 @@ window.PORTFOLIO = {
 
   projects: [
     { slug:"handle", name:"Handle", meta:true, tags:["MCP","macOS","Chrome"], github:"https://github.com/abhitsian/handle", live:"https://abhitsian.github.io/handle/",
-      desc:"Give your agent a handle on every open Chrome tab — reference and read your real, logged-in tabs.",
-      about:"The tabs you have open are your working context — the spec, the Figma, the doc you're logged into — but your agent can't see them. Handle gives every open Chrome tab a stable handle (t1, t2…) you can name, and a read that pulls the tab's live, logged-in content into the conversation: past the login walls and JavaScript that defeat a plain fetch. Text where text exists, screenshots read with vision where it doesn't.",
-      features:["Stable handles — reference a tab by name, by content, or just 'what I'm looking at'","read pulls live, logged-in page content past auth walls","Format-aware: HTML & Markdown, Google Docs/Sheets export, Figma/PDF/Office via screenshot→vision","Ships three ways: a CLI, a board, and an MCP server","Pure Python stdlib — no API key"] },
+      desc:"Your whole Chrome, one question away — make your real, signed-in browser readable by your AI agent.",
+      about:"Your browser is the highest-fidelity record of your work, but your agent can't see any of it, and Chrome can barely search it. Handle makes the whole thing queryable in plain language: the signed-in tabs you have open (past the login walls that defeat a plain fetch), and everything behind them — your history, the pages you closed, bookmarks, downloads — searched by meaning, not keywords. It only ever reads; it never clicks, types, or drives the page. Runs locally, no API key.",
+      features:["Reads your real, signed-in pages — the Google Doc, the dashboard, the SharePoint file — where sandboxed browser tools see nothing","Query the whole browser by meaning: \"what did I work on today?\", \"pull up that article I read last week\", \"reopen the doc I closed\"","Answer across open tabs cited, save/recall research, format-aware reads (Docs/Sheets export, Figma/PDF via vision)","Ships as a CLI, a board, and an MCP server — 25 tools, read-only, local, pure Python stdlib"] },
 
     { slug:"margin", name:"Margin", tags:["macOS","Electron","Provenance"], github:"https://github.com/abhitsian/margin", live:"https://abhitsian.github.io/margin/",
       desc:"A writing app that records how a document was made: what you typed, what AI wrote, what you quoted.",
@@ -148,10 +148,6 @@ window.PORTFOLIO = {
       about:"One box for everything in your head. Dump a thought and an AI classifier routes it — task, idea, journal entry, saved item — so capture stays frictionless and nothing gets lost.",
       features:["One freeform capture box","AI classifies into tasks/ideas/journal/saved","Replaces the personal-WhatsApp-to-self habit","Frictionless capture"] },
 
-    { slug:"tab-tasks", logo:"assets/tab-tasks-logo.png", name:"Tab Tasks", image:"assets/tab-tasks.png", tags:["Python"], github:"https://github.com/abhitsian/tab-tasks",
-      desc:"Reads your open Chrome tabs and clusters them into the tasks you're on.",
-      about:"Your open tabs are a map of what you're working on. Tab Tasks reads them on demand, clusters them into the tasks they belong to, and flags the ones that have gone stale.",
-      features:["Reads open Chrome tabs on demand","Clusters tabs into tasks","Flags stale tabs","On-demand board"] },
 
     { slug:"riff", logo:"assets/riff-logo.png", name:"Riff", tags:["Node"],
       desc:"Point at any mock, draw a box and comment, and get redesign options on the mock's own design tokens.",
