@@ -67,9 +67,9 @@ window.PORTFOLIO = {
       features:["Permanent, browsable conversation history","Cost tracking across sessions","Prompting coach that improves how you ask","Conversation intelligence over your whole history"] },
 
     { slug:"coauthor", logo:"assets/coauthor-logo.png", name:"coauthor", meta:true, tags:["Tool"], github:"https://github.com/abhitsian/coauthor",
-      desc:"A shared surface for humans and AI agents to shape documents together.",
-      about:"Editing a doc with an AI usually means copy-paste ping-pong. coauthor is a shared review surface — inline edits, anchored comments, version history — where a human and an agent work the same document without losing the thread.",
-      features:["Inline editing + anchored comments","Version history","Built for human + agent collaboration","Hand off between chat and precise, anchored feedback"] },
+      desc:"A shared surface where you and an AI shape a document together — and the AI shows its work.",
+      about:"Editing a doc with an AI usually means copy-paste ping-pong: it regenerates everything, overwrites the good parts, and you re-read the whole thing to find what changed. coauthor is a review surface where you point at the parts that matter — inline edits, anchored comments, keep-this-section — and the feedback lives in a plain .coauthor sidecar any agent can read. A Run feedback button applies your comments in the browser (your Claude login, no API key), then surfaces the rewrite as an accept-or-reject diff so you stop re-reading to find what moved. Principles accumulate into a working agreement that compounds across documents. And an Agent tab records the AI's reasoning — the assumptions it made, the tradeoffs it took, and what it considered but chose to leave out — so its thinking is auditable instead of buried under tidy prose. Pairs with Margin for authorship provenance.",
+      features:["Point at the doc: inline edits, anchored comments, keep-this-section","Run feedback in-browser, then accept/reject the rewrite hunk by hunk","Principles that compound into a working agreement across docs","Agent notes — what the AI assumed, traded off, and considered but left out","Never eats your work: held external changes, drift-flagged comments, undoable restore"] },
 
     { slug:"ai-eval-kit", logo:"assets/ai-eval-kit-logo.png", name:"ai-eval-kit", tags:["Kit","Eval"], github:"https://github.com/abhitsian/ai-eval-kit",
       desc:"Evaluation toolkit for PMs building AI products — config evals, trace viewer, LLM judges.",
