@@ -16,7 +16,7 @@ window.PORTFOLIO = {
 
   stats: [
     { k: "skills",   v: "100+", note: "custom Claude Code skills" },
-    { k: "projects", v: "20+",  note: "public repos" },
+    { k: "projects", v: "21+",  note: "public repos" },
     { k: "apps",     v: "14",   note: "locally-built tools" },
     { k: "writing",  v: "39",   note: "PM × AI articles" }
   ],
@@ -26,7 +26,7 @@ window.PORTFOLIO = {
     label: "A throughline",
     title: "Tools that make AI a better collaborator.",
     blurb: "A lot of this work points the same direction: the better my tools for working with Claude, the better everything else gets. So I build for the workflow itself — history, cost, memory, document review, parallel sessions — then use it to build the rest.",
-    slugs: ["handle", "claude-desk", "coauthor", "sessions-mcp", "receipts", "compound-pm", "claude-mcp-tools", "agents-chat", "ambient-ai"]
+    slugs: ["myday", "handle", "claude-desk", "coauthor", "sessions-mcp", "receipts", "compound-pm", "claude-mcp-tools", "agents-chat", "ambient-ai"]
   },
 
   skills: {
@@ -45,6 +45,11 @@ window.PORTFOLIO = {
       desc:"A writing app that records how a document was made: what you typed, what AI wrote, what you quoted.",
       about:"AI made writing cheap and trusting it expensive. Margin captures provenance as you write: typed text is yours, pasted text declares its source, AI-written text carries the prompt that produced it, and third-party docs are marked imported. It exports a clean document with a verifiable authorship record one toggle away, and lets a coding agent edit the doc while recording provenance through a CLI and an MCP server. Use AI for writing, share the receipts. A concept tool, built and used.",
       features:["Provenance captured by how text enters: typed, AI, source, or imported","Shareable authorship record: clean prose, full provenance one toggle away, plus a SHA-256 fingerprint","Own an AI passage with a reason. The origin stays recorded; the framing changes","Claude Code edits via a CLI and MCP server, attributed and live-reloaded into the editor","Client-side verifier recomputes the fingerprint and flags edits made after signing"] },
+
+    { slug:"myday", logo:"assets/myday-logo.png", name:"My Day", meta:true, tags:["macOS","MCP","Swift","Privacy"], github:"https://github.com/abhitsian/myday",
+      desc:"A private record of what you worked on, readable by your AI assistant.",
+      about:"OpenAI shipped Computer History in the ChatGPT Mac app in August 2026 — interaction events rather than screenshots, rolled up every ten minutes into Markdown memory. My Day takes that idea and opens it: it works before you grant any permission, reads page detail from the browser's own history instead of scraping the window, derives the threads of work that recur across days, and exposes the whole thing over MCP so Claude Code, Cursor or Zed can read your history mid-task instead of asking you to re-explain it.",
+      features:["Three capture tiers — the first two need no macOS permission at all","One Markdown file per ten minutes; no database, no account, nothing uploaded","Threads: recurring work derived from files touched and pages opened, never declared","Friction: repeated sign-ins and re-searches, counted with the evidence attached","MCP server with an escaped untrusted-data envelope, since notes are built from text other people control","Menu bar app in Swift, plus a CLI and a local viewer"] },
 
     { slug:"sessions-mcp", logo:"assets/sessions-mcp-logo.png", name:"sessions-mcp", meta:true, tags:["MCP","Node"], github:"https://github.com/abhitsian/sessions-mcp",
       desc:"Search, read, and tail past and live Claude Code sessions.",
