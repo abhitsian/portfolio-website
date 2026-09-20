@@ -16,7 +16,7 @@ window.PORTFOLIO = {
 
   stats: [
     { k: "skills",   v: "100+", note: "custom Claude Code skills" },
-    { k: "projects", v: "21+",  note: "public repos" },
+    { k: "projects", v: "24+",  note: "public repos" },
     { k: "apps",     v: "14",   note: "locally-built tools" },
     { k: "writing",  v: "39",   note: "PM × AI articles" }
   ],
@@ -36,6 +36,36 @@ window.PORTFOLIO = {
   },
 
   projects: [
+    { slug:"seek", name:"Seek", tags:["macOS","Swift","Spotlight","Apple Intelligence"], github:"https://github.com/abhitsian/seek",
+      desc:"Describe a file, app, setting, Chrome tab or person on your Mac, and open it.",
+      about:"Spotlight matches the words you remember; most of the time you remember the file instead. Seek reads a plain-English search into filters a Mac can act on, then ranks what Spotlight returns by whether each file actually fits. TypeSafe's Jev model does the reading and ranking when a key is set, Apple's on-device model when it isn't, and word lists when neither is there, so the panel still works offline. It also opens apps, jumps to a page inside System Settings, switches to an open Chrome tab, and starts a Teams chat.",
+      features:["Plain-English file search: \"the lease pdf from march\", \"pdfs under 1 mb from last month\", \"screenshots from yesterday\"","Says when nothing matches instead of showing the closest wrong file","Opens apps, 51 System Settings pages and their Privacy sections, and Finder folders","Searches open Chrome tabs by title, address and page text, and switches to the one you pick","Reads what you want done: open it, show it in Finder, or chat with someone in Teams","Three readers, one panel: TypeSafe Jev, Apple Intelligence on device, or word lists"] },
+
+    { slug:"mudra", name:"Mudra", tags:["macOS","Swift","On-device"], github:"https://github.com/abhitsian/mudra",
+      desc:"Control your Mac hands-free with AirPods head motion and camera hand gestures.",
+      about:"AirPods already carry a motion sensor and the Mac already has a camera, so the hardware for hands-free control is sitting on your desk. Mudra turns a nod, a head turn or a hand gesture into scrolling, clicking and app switching, all processed on the machine with nothing sent anywhere.",
+      features:["Head motion from AirPods sensors, hand gestures from the built-in camera","Everything runs on device; no video or motion data leaves the Mac","Maps gestures to scrolling, clicks and app switching","Swift menu-bar app you can leave running"] },
+
+    { slug:"kinetic-atlas", name:"Kinetic Atlas", tags:["3D","WebGL","Anatomy"], github:"https://github.com/abhitsian/kinetic-atlas", live:"https://abhitsian.github.io/kinetic-atlas/",
+      desc:"873 exercises mapped onto a real 3D anatomical model. Pick one and watch the muscles light up.",
+      about:"Exercise libraries tell you what to do and leave out what it works. Kinetic Atlas puts 873 exercises on an anatomical model with 467 named muscles, so picking a movement lights up what it trains and how to perform it. Built on an openly licensed anatomy model rather than illustrations.",
+      features:["873 exercises, each mapped to the muscles it trains","Real 3D anatomy with 467 named muscles, not diagrams","Form guidance alongside the anatomy","Runs in the browser, no install"] },
+
+    { slug:"company-dossiers", name:"Company Dossiers", tags:["Research","Python","Static site"], github:"https://github.com/abhitsian/company-dossiers", live:"https://abhitsian.github.io/company-dossiers/",
+      desc:"Living research dossiers on the companies that matter this decade: product, strategy, unit economics, moats.",
+      about:"Company research goes stale the week after you write it. These dossiers are kept as Markdown and rebuilt into a browsable site, so an earnings call or a product launch updates the same document instead of starting a new one. Each covers product sense, strategy, unit economics and what actually protects the business.",
+      features:["Markdown is the source of truth; the site is generated from it","Product sense, strategy, unit economics and moats per company","Updated as news and earnings arrive, not rewritten","Python generator, static output"] },
+
+    { slug:"krishnamurti-teachings", name:"Krishnamurti Teachings", tags:["Static site","Reading"], github:"https://github.com/abhitsian/krishnamurti-teachings", live:"https://abhitsian.github.io/krishnamurti-teachings/",
+      desc:"A contemplative site built from the Krishnamurti-Anderson dialogues.",
+      about:"Jiddu Krishnamurti's dialogues with Allan Anderson run to hours of transcript, which is a hard way to meet the ideas. This lays the core of them out as a quiet site you can read a piece at a time, with the themes kept in his own words rather than summarized away.",
+      features:["Core ideas drawn from the Krishnamurti-Anderson dialogues","Built for reading in passes, not in one sitting","His own words kept intact","Plain static site, no tracking"] },
+
+    { slug:"deluxe-bus", name:"Deluxe Bus", tags:["Static site","Music","Fun"], github:"https://github.com/abhitsian/deluxe-bus", live:"https://abhitsian.github.io/deluxe-bus/",
+      desc:"Tamil bangers that blast out of a town bus speaker. 32 songs, one page, a bus that rolls when the music does.",
+      about:"A jukebox with a sense of place: 32 Tamil songs of the kind that come out of a TNSTC bus speaker, on a painted bus that rolls while the music plays. One page, no account, built for the joy of it.",
+      features:["32 songs in one page","A painted bus that moves with the music","No account, no app, just a link","Built for fun"] },
+
     { slug:"handle", name:"Handle", meta:true, tags:["MCP","macOS","Chrome"], github:"https://github.com/abhitsian/handle", live:"https://abhitsian.github.io/handle/",
       desc:"Your whole Chrome, one question away — make your real, signed-in browser readable by your AI agent.",
       about:"Your browser is the highest-fidelity record of your work, but your agent can't see any of it, and Chrome can barely search it. Handle makes the whole thing queryable in plain language: the signed-in tabs you have open (past the login walls that defeat a plain fetch), and everything behind them — your history, the pages you closed, bookmarks, downloads — searched by meaning, not keywords. It only ever reads; it never clicks, types, or drives the page. Runs locally, no API key.",
