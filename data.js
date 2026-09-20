@@ -17,7 +17,7 @@ window.PORTFOLIO = {
   stats: [
     { k: "skills",   v: "100+", note: "custom Claude Code skills" },
     { k: "projects", v: "24+",  note: "public repos" },
-    { k: "apps",     v: "14",   note: "locally-built tools" },
+    { k: "apps",     v: "18",   note: "locally-built tools" },
     { k: "writing",  v: "39",   note: "PM × AI articles" }
   ],
 
@@ -158,6 +158,36 @@ window.PORTFOLIO = {
   ],
 
   apps: [
+    { slug:"showtell", name:"Showtell", meta:true, tags:["macOS","Swift","Voice"],
+      desc:"Press ⌃⌥C, talk while you drag over the screen, and the screenshot plus what you said land in your terminal.",
+      about:"Explaining a bug to a coding agent usually means a screenshot, a paragraph describing it, and a second paragraph correcting the first. Showtell collapses that: hold the shortcut, drag over the part of the screen you mean, and say what is wrong. The capture and the transcript arrive together in whichever terminal or Claude window you used last. ⌃⌥V does the same for a screen recording.",
+      features:["⌃⌥C for a region screenshot, ⌃⌥V for a screen recording","Speak while you capture; the transcript travels with the image","Lands in the terminal or Claude window you used last, ready to send","Menu-bar app in Swift, signed locally so permissions survive rebuilds"] },
+
+    { slug:"day", name:"Day", meta:true, tags:["macOS","Node","MCP","Privacy"],
+      desc:"One day of your work, fused from the browser, your Claude Code sessions, meetings and health.",
+      about:"Your day is scattered across a browser, a few terminals, a calendar and a watch, and none of them can describe it back to you. Day pulls them into a single timeline, and keeps a searchable ten-minute memory of what happened on the Mac, which an assistant can read instead of asking you to re-explain. It all stays local.",
+      features:["Browser, Claude Code work, meetings and health on one timeline","Computer History: ten-minute Markdown memories, searchable and askable","Focus lane that samples attention through the day","Local only, nothing uploaded"] },
+
+    { slug:"doorbell", name:"Doorbell", meta:true, tags:["MCP","Node","Cloudflare"],
+      desc:"Someone on another Claude subscription asks your Mac a question; you approve the answer that goes back.",
+      about:"Two people on separate Claude subscriptions cannot ask each other's machines anything. Doorbell gives one a way to file a question into a small queue; your Mac polls it, rings, and answers from a scoped read-only local session. Nothing leaves until you have read the draft and sent it.",
+      features:["Questions arrive through a free Cloudflare Workers queue","Your Mac polls outbound, so nothing listens on your network","Answers come from a scoped, read-only local session","You edit and send; nothing is returned automatically"] },
+
+    { slug:"voice", name:"Voice", meta:true, tags:["Python","Writing","Evals"],
+      desc:"Learns how you write from edits you already made, then proves the guide actually helps.",
+      about:"Style guides for AI writing are usually written from memory and never checked. Voice mines the edits you made to AI drafts, turns the repeated corrections into rules and worked before-and-after pairs, and holds back a set of your own edits to test whether the guide improves later drafts. Rules that fail the test do not survive.",
+      features:["Mines your real edits, not a remembered style","Produces worked before-and-after pairs, not only rules","Keeps a held-out set of your edits as the test","Works for any assistant, not one vendor"] },
+
+    { slug:"notice", name:"Notice", tags:["Node","Design","Craft"],
+      desc:"A practice for seeing interface craft: stay with one specimen until you see why it works.",
+      about:"Design taste is usually described as something you either have or lack, which makes it impossible to practise. Notice treats it as attention: one interface at a time, held long enough to write down what you see, then compared against what an expert noticed in the same screen. The gap is the lesson.",
+      features:["One specimen per session, held longer than feels comfortable","Write what you notice before seeing any answer","Compare against an expert reading of the same interface","Built on a 65-rule craft checklist"] },
+
+    { slug:"xray", name:"X-Ray", tags:["Chrome extension","Design QA"],
+      desc:"Chrome extension that annotates visual and interaction-state defects on any page.",
+      about:"Design QA usually happens in screenshots pasted into a doc, far from the page itself. X-Ray marks the defects in place: spacing that breaks the rhythm, states that never got designed, contrast that fails. Load it unpacked and it works on any page you can open.",
+      features:["Annotates visual defects directly on the live page","Covers interaction states, not just the default view","Works on any page, including ones behind a login","Load unpacked, no store install"] },
+
     { slug:"taste-library", logo:"assets/taste-library-logo.png", name:"Taste Library", image:"assets/taste-library.png", tags:["Tool","Python"],
       desc:"Curated taste anchors — text and image captures from the web, searchable.",
       about:"A personal library for things worth keeping — articles, images, talks, whatever catches the eye. Capture from anywhere on the web with a Chrome extension or paste a URL; the library pulls clean text and YouTube transcripts so the page is searchable, not just bookmarked.",
