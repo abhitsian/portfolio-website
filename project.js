@@ -37,7 +37,9 @@
 
   // visual hero priority: real screenshot, then logo, then generated cover
   let visual;
-  if (it.image) {
+  if (it.video) {
+    visual = `<figure class="d-visual shot a1"><video controls playsinline preload="metadata" ${it.poster ? `poster="${esc(it.poster)}"` : ""} src="${esc(it.video)}" style="width:100%;height:auto;display:block"></video><figcaption>Demo — ${esc(it.name)}</figcaption></figure>`;
+  } else if (it.image) {
     visual = `<figure class="d-visual shot a1"><img src="${esc(it.image)}" alt="${esc(it.name)} screenshot" loading="eager"><figcaption>Screenshot — ${esc(it.name)}</figcaption></figure>`;
   } else if (it.logo) {
     visual = `<figure class="d-visual logo-hero a1"><img src="${esc(it.logo)}" alt="${esc(it.name)} logo" loading="eager"><figcaption>${esc(it.name)}</figcaption></figure>`;

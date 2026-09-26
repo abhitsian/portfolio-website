@@ -158,10 +158,15 @@ window.PORTFOLIO = {
   ],
 
   apps: [
-    { slug:"showtell", name:"Showtell", meta:true, tags:["macOS","Swift","Voice"],
-      desc:"Press ⌃⌥C, talk while you drag over the screen, and the screenshot plus what you said land in your terminal.",
-      about:"Explaining a bug to a coding agent usually means a screenshot, a paragraph describing it, and a second paragraph correcting the first. Showtell collapses that: hold the shortcut, drag over the part of the screen you mean, and say what is wrong. The capture and the transcript arrive together in whichever terminal or Claude window you used last. ⌃⌥V does the same for a screen recording.",
-      features:["⌃⌥C for a region screenshot, ⌃⌥V for a screen recording","Speak while you capture; the transcript travels with the image","Lands in the terminal or Claude window you used last, ready to send","Menu-bar app in Swift, signed locally so permissions survive rebuilds"] },
+    { slug:"cuecard", name:"Cuecard", logo:"assets/cuecard-logo.png", video:"assets/cuecard-demo.mp4", poster:"assets/cuecard-poster.jpg", tags:["macOS","Swift","Speech","Claude"], github:"https://github.com/abhitsian/cuecard",
+      desc:"A meeting copilot that sorts every sentence into decisions, tasks, questions and risks while the meeting is still going.",
+      about:"Cuecard transcribes both sides of a call on the Mac, so every line knows who said it. Jev, a fast classifier, judges each turn in about 0.4 seconds, and plain code files what matters into Decisions, Tasks, Questions and Risks, ticking a question off when someone answers it. Claude writes only when words are needed: what to say when you are asked, a follow-up when an answer is vague, and the recap at the end, which files itself into Notion with the transcript.",
+      features:["Both sides transcribed on device, each line tagged You or Them","Jev judges every turn in about 0.4 s; code decides what gets filed","Meeting board: a live 2×2 of decisions, tasks, questions and risks","Claude drafts what to say when you are asked, and writes the recap","Recap, transcript and recording filed to Notion afterwards"] },
+
+    { slug:"pointer", name:"Pointer", logo:"assets/pointer-logo.png", meta:true, tags:["macOS","Swift","Voice","MCP"], github:"https://github.com/abhitsian/pointer",
+      desc:"Point at your screen and say what's wrong: the capture and what you said land in your coding assistant.",
+      about:"Explaining a bug to a coding agent usually means a screenshot, a paragraph describing it, and a second paragraph correcting the first. Pointer collapses that: press the shortcut, drag over the part of the screen you mean, and say what is wrong. The capture and the transcript arrive together in whichever terminal or Claude window you used last. ⌃⌥V does the same for a screen recording, watch mode writes up a meeting or talk with what was on screen, and an MCP server lets Claude search everything captured.",
+      features:["⌃⌥C for a region screenshot, ⌃⌥V for a screen recording","Speak while you capture; the transcript travels with the image","Watch and listen modes write up what was said and shown","MCP server: search speech and on-screen text across every capture"] },
 
     { slug:"day", name:"Day", meta:true, tags:["macOS","Node","MCP","Privacy"],
       desc:"One day of your work, fused from the browser, your Claude Code sessions, meetings and health.",
